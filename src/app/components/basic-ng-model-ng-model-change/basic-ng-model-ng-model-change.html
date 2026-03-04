@@ -1,25 +1,30 @@
 <p>basic-ng-model-ng-model-change works!</p>
 <div class="row">
+    <!-- [(ngModel)] and (ngModelChange) -->
     <div class="col-sm-6">
-        <input 
-        type="text" 
-        class="form-control" 
-        placeholder="Enter Your Name...."
-        [(ngModel)]="myName"
-        (ngModelChange)="onChangeName($event)"
-        >
+        <input type="text" class="form-control" placeholder="Enter Your Name...." [(ngModel)]="myName"
+            (ngModelChange)="onChangeName($event)">
         <hr>
         <p><b class="text-success">{{myName()}}</b></p>
+        <hr>
+        <hr>
     </div>
+
+    <!-- (ngModel) and (ngModelChange) -->
     <div class="col-sm-6">
-        <input 
-        type="text" 
-        class="form-control" 
-        placeholder="Enter Your Subject Name...."
-        [ngModel]="mySubjectName()"
-        (ngModelChange)="onChangeSubjectName($event)"
-        >
+        <input type="text" class="form-control" placeholder="Enter Your Subject Name...." [ngModel]="mySubjectName()"
+            (ngModelChange)="onChangeSubjectName($event)">
         <hr>
         <p><b class="text-success">{{mySubjectName()}}</b></p>
+        <hr>
+        <hr>
+    </div>
+
+    <!-- (value) and (ngModelChange) -->
+
+    <div class="col-sm-6 my-4">
+        <input type="text" class="form-control" placeholder="Enter Your Subject Name...." [value]="myRollNo()" (input)="onChangeRollNo($event)">
+        <hr>
+        <p><b class="text-success">{{myRollNo()}}</b></p>
     </div>
 </div>
