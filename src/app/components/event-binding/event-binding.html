@@ -1,0 +1,149 @@
+<div class="row my-5">
+    <!-- click event  -->
+    <div class="col-sm-4">
+        <h3 class="text-primary">Click Event Binding</h3>
+        <hr>
+        <ul class="list-group">
+            <li class="list-group-item">Name : <b class="text-success">{{myStudentDetails().name}}</b> </li>
+            <li class="list-group-item">Age : <b class="text-success">{{myStudentDetails().age}}</b></li>
+            <li class="list-group-item">Contact : <b class="text-success">{{myStudentDetails().contact}}</b></li>
+            <li class="list-group-item">Email : <b class="text-success">{{myStudentDetails().email}}</b></li>
+            <li class="list-group-item">City : <b class="text-success">{{myStudentDetails().address.city}}</b></li>
+            <li class="list-group-item">State : <b class="text-success">{{myStudentDetails().address.state}}</b></li>
+            <li class="list-group-item">PinCode : <b class="text-success">{{myStudentDetails().address.pincode}}</b>
+            </li>
+        </ul>
+        <button class="btn btn-primary btn-sm my-3" (click)="onChangeStudentsDetails()">Change Student Details</button>
+    </div>
+
+    <!-- mouse enter and leave event -->
+    <div class="col-sm-4">
+        <h4 class="text-primary">Mouse Enter And Leave Event Binding</h4>
+        <hr>
+        @if(this.isActiveCondition()){
+        <p (mouseenter)="onMouseEnterParagraph()" (mouseleave)="onMouseLeaveParagraph()">{{myParagraph()}}</p>
+        }@else {
+        <img [src]="myImageImage()" alt="" class="w-100">
+        }
+
+    </div>
+
+    <!-- keydown and keyup event -->
+    <div class="col-sm-4">
+        <h3 class="text-primary">keyDown And keyUp Event</h3>
+        <hr>
+        <input type="text" class="form-control" placeholder="Type something..." (keydown)="onKeyDown($event)">
+        <p>KeyDown : {{myTypeText()}}</p>
+        <hr>
+        <hr>
+        <input type="text" class="form-control" placeholder="Type something..." (keyup)="onKeyUp($event)">
+        <p>KeyUp : {{myTypeText()}}</p>
+    </div>
+
+    <div class="line"></div>
+    <!-- keyup.enter -->
+    <div class="col-sm-4">
+        <h3 class="text-primary">KeyUp.Enter Event</h3>
+        <hr>
+        <hr>
+        <!-- <input type="text" class="text form-control" placeholder="Enter Your Subjec Name....." (keyup.enter)="onKeyupEnter($event)"> -->
+        <input type="text" class="text form-control" placeholder="Enter Your Subjec Name....."
+            (keyup)="onKeyupEnterMethod($event)">
+        <h2 class="text-success my-2">{{mySubjectName()}}</h2>
+    </div>
+
+    <!-- input event -->
+    <div class="col-sm-4">
+        <h3 class="text-primary">Input Event</h3>
+        <hr>
+        <hr>
+        <input type="text" class="text form-control" placeholder="Enter Your Email Address..."
+            (input)="onInputEvent($event)">
+        <hr>
+        <h5 class="text-success">{{myEmailAddress()}}</h5>
+    </div>
+
+    <!-- Focus Event -->
+    <div class="col-sm-4">
+        <h3 class="text-primary">Focus Event</h3>
+        <hr>
+        <hr>
+        <input type="text" class="text form-control" placeholder="Enter Your Email Address..." (focus)="onFocusInput()">
+        <hr>
+    </div>
+
+    <div class="line"></div>
+
+    <!-- Blur Event -->
+    <div class="col-sm-4">
+        <h3 class="text-primary">Blur Event</h3>
+        <hr>
+        <hr>
+        <input type="text" class="text form-control" placeholder="Enter Your Email Address..." (blur)="onblurInput()">
+        <hr>
+    </div>
+
+    <!-- focus and blur Event -->
+     <!-- method 1 -->
+    <div class="col-sm-4">
+        <h3 class="text-success">Blur And Focus Event in Single Input Event Method 1</h3>
+        <hr>
+        <hr>
+        <input 
+        type="text" 
+        class="form-control"
+        (focus)="isFocused.set(true)" 
+        (blur)="isFocused.set(false)"
+        [style.border]="isFocused() ? '2px solid green' : '1px solid gray'" 
+        placeholder="Focus me">
+
+        @if (isFocused()) {
+            <p>Input is Focused</p>
+        }
+    </div>
+
+    <!-- method 2 -->
+        <div class="col-sm-4">
+        <h3 class="text-success">Blur And Focus Event in Single Input Event Method 2</h3>
+        <hr>
+        <hr>
+        <input 
+        type="text" 
+        class="form-control"
+        (focus)="isActiveFocused.set(true)"
+        (blur)="isActiveFocused.set(false)"
+        [style.border]="isFocused() ? '2px solid green' : '1px solid gray'" 
+        placeholder="Focus me"
+        #myInput
+        >
+
+        @if (isActiveFocused()) {
+            <p>Input is Focused</p>
+        }
+    </div>
+
+    <div class="line"></div>
+
+    <div class="col-sm-4">
+        <h3 class="text-primary">Submit Event</h3>
+        <form #myForm="ngForm" (ngSubmit)="onSubmitForm()">
+            <div class="form-row">
+                <div class="col-sm-12">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" [(ngModel)]="myPerson.name" class="text form-control" placeholder="Enter Your Name....">
+                </div>
+                <div class="col-sm-12 my-3">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" [(ngModel)]="myPerson.email" class="text form-control" placeholder="Enter Your Email....">
+                </div>
+                <div class="col-sm-12">
+                    <label for="contact">Contact</label>
+                    <input type="text" name="contact" [(ngModel)]="myPerson.contact" class="text form-control" placeholder="Enter Your Contact....">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm w-100 my-2" aria-label="Submit">Submit</button>
+            <hr>
+            <p>{{myDisplay() | json}}</p>
+        </form>
+    </div>
+</div>
