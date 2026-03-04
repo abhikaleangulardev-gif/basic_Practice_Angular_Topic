@@ -4,22 +4,30 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-basic-ng-model-ng-model-change',
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './basic-ng-model-ng-model-change.html',
   styleUrl: './basic-ng-model-ng-model-change.css',
 })
 export class BasicNgModelNgModelChange {
-   myName:WritableSignal<string> = signal<string>('Abhishek Kale');
+  myName: WritableSignal<string> = signal<string>('Abhishek Kale');
 
-   mySubjectName:WritableSignal<string> = signal<string>('Angular 21');;
+  mySubjectName: WritableSignal<string> = signal<string>('Angular 21');
 
-   onChangeName(event:Event){
+  myRollNo: WritableSignal<number> = signal<number>(233);
+
+  onChangeName(event: Event) {
     console.log(event);
     // this.myName.set((event.target as HTMLInputElement).value);
-   }
+  }
 
-   onChangeSubjectName(event:string){
+  onChangeSubjectName(event: string) {
     console.log(event);
     this.mySubjectName.set(event);
-   }
+  }
+
+  onChangeRollNo(event: Event) {
+    const myRollNo = (event.target as HTMLInputElement)?.value;
+    console.log(myRollNo);
+    this.myRollNo.set(+myRollNo);
+  }
 }
