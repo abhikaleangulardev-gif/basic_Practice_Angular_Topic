@@ -1,1 +1,108 @@
-<p>basic-data-binding works!</p>
+<div class="row my-5">
+    <div class="col-sm-12">
+        <h3>One Way Binding</h3>
+        <hr>
+        <hr>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="text-success">String Interpolution</h4>
+            </div>
+            <div class="card-body">
+                <h5 class="text-secondary">{{myFullName()}}</h5>
+                <hr>
+                <!-- <button class="btn btn-primary btn-sm w-100" (click)="myFullName.set('mohit kale')">change fullname</button> -->
+
+                <button class="btn btn-primary btn-sm w-100" (click)="onChangeFullName()">change fullname</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="text-success">Property Binding</h4>
+            </div>
+            <div class="card-body d-flex justify-content-between gap-5">
+                <!-- textContent -->
+                <h5 class="text-secondary" [textContent]="mySubjectTitleName()"></h5>
+
+                <!-- innerHTML -->
+                <h5 class="text-secondary" [innerHTML]="mySubjectTitleName()"></h5>
+
+                <!--  -->
+                <h5 class="text-secondary" [innerText]="mySubjectTitleName()"></h5>
+                <hr>
+            </div>
+            <div class="card-action p-2">
+                <!-- <button class="btn btn-primary btn-sm w-100" (click)="mySubjectTitleName.set('React Js')">change Subject TitleName</button> -->
+
+                <button class="btn btn-primary btn-sm w-100" (click)="onChangeSubjectTitleName()">change Subject
+                    TitleName</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <hr>
+        <h3>Two Data Binding</h3>
+        <hr>
+        <hr>
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-success">NgModel</h3>
+            </div>
+            <div class="card-body">
+
+                <!--[(ngModel)]  -->
+                <!-- <input type="text" class="form-control" placeholder="Enter Your Name....." [(ngModel)]="myMovieName"> -->
+
+                <!-- input event and value property -->
+                <!-- <input type="text" class="form-control" placeholder="Enter Your Name....." [value]="myMovieName()" (input)="myMovieName.set($any($event.target).value)"> -->
+
+
+                <!-- ngModelChange event and ngModel -->
+                <!-- <input type="text" class="form-control" placeholder="Enter Your Name....." [ngModel]="myMovieName()"
+                    (ngModelChange)="myMovieName.set($event)"> -->
+
+                <!-- ngModelChange using function or method -->
+                <input type="text" class="form-control" placeholder="Enter Your Name....." [ngModel]="myMovieName()"
+                    (ngModelChange)="onMovieNameChange($event)">
+
+                <h3 class="my-2">{{myMovieName()}}</h3>
+                <h3 [innerHTML]="myMovieName()"></h3>
+
+                <hr>
+                <hr>
+                <h3>Student object</h3>
+                <!-- i have create in input tag with student value change -->
+
+                <!-- 1.change the student name -->
+                <label for="name">Name</label>
+                <input type="text" id="name" class="form-control my-2" placeholder="Enter Your Student name"
+                    [value]="myStudent().name" (input)="updateStudentDetails('name',$event.target.value)">
+
+                <label for="age">Age</label>
+                <input type="text" id="age" class="form-control my-2" placeholder="Enter Your Student Age"
+                    [value]="myStudent().age" (input)="updateStudentDetails('age',$event.target.value)">
+
+                <label for="branch">Branch</label>
+                <input type="text" id="branch" class="form-control my-2" placeholder="Enter Your Student branch"
+                    [value]="myStudent().branch" (input)="updateStudentDetails('branch',$event.target.value)">
+
+                <label for="email">Email</label>
+                <input type="text" id="email" class="form-control my-2" placeholder="Enter Your Student Email"
+                    [value]="myStudent().email" (input)="updateStudentDetails('email',$event.target.value)">
+
+                <label for="contact">Contact</label>
+                <input type="text" id="contact" class="form-control my-2" placeholder="Enter Your Student Contact"
+                    [value]="myStudent().contact" (input)="updateStudentDetails('contact',$event.target.value)">
+
+                <p>{{myStudent() | json}}</p>
+            </div>
+        </div>
+    </div>
+</div>
