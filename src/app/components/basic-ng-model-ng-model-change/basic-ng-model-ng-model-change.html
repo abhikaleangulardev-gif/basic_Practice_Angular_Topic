@@ -1,0 +1,14 @@
+<p>basic-ng-model-ng-model-change works!</p>
+<div class="row">
+    <div class="col-sm-6">
+        <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Enter Your Name...."
+        [(ngModel)]="myName"
+        (ngModelChange)="onChangeName($event)"
+        >
+        <hr>
+        <p><b class="text-success">{{myName()}}</b></p>
+    </div>
+</div>
