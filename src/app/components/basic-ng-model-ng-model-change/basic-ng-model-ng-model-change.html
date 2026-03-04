@@ -11,4 +11,15 @@
         <hr>
         <p><b class="text-success">{{myName()}}</b></p>
     </div>
+    <div class="col-sm-6">
+        <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Enter Your Subject Name...."
+        [ngModel]="mySubjectName()"
+        (ngModelChange)="onChangeSubjectName($event)"
+        >
+        <hr>
+        <p><b class="text-success">{{mySubjectName()}}</b></p>
+    </div>
 </div>

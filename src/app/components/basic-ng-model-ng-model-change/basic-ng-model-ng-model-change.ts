@@ -11,8 +11,15 @@ import { FormsModule } from '@angular/forms';
 export class BasicNgModelNgModelChange {
    myName:WritableSignal<string> = signal<string>('Abhishek Kale');
 
+   mySubjectName:WritableSignal<string> = signal<string>('Angular 21');;
+
    onChangeName(event:Event){
     console.log(event);
     // this.myName.set((event.target as HTMLInputElement).value);
+   }
+
+   onChangeSubjectName(event:string){
+    console.log(event);
+    this.mySubjectName.set(event);
    }
 }
