@@ -1,0 +1,62 @@
+<div class="row">
+    <!-- [ngClass] -->
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-primary">[ngClass] Directive</h3>
+            </div>
+            <div class="card-body">
+                <div [ngClass]="{'special-border':isSpecial(),'disabled-text':canSave()}" (click)="toggleState()">
+                    Dynamic Class Box
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- [ngStyle] -->
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-item-center">
+                <h3 class="text-primary">[ngStyle] Directive</h3>
+                <button type="button" class="btn btn-secondary btn-sm my-3" (click)="onChangeStyling()">Change
+                    Styling</button>
+            </div>
+            <div class="card-body">
+                <div [ngStyle]="{'color':textColor(),'fontSize':fontSize(),'border':borderSize()}">
+                    Dynamic Style Box
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="line"></div>
+
+    <!-- class.css_selector_name -->
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-primary"> class Directive</h3>
+            </div>
+            <div class="card-body">
+                <div [class.active]="isActive()" (click)="onChangeActiveclass()">
+                    Dynamic Class Box (Click Me)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- style -->
+         <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-primary"> style Directive</h3>
+            </div>
+            <div class="card-body">
+                <div [style]="myStylingObj()" (click)="onChangeStyle()">
+                    Dynamic Class Box (Click Me)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

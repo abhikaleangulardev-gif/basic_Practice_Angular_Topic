@@ -1,0 +1,22 @@
+.special-border{
+    border:2px solid red;
+}
+
+.disabled-text{
+    color:forestgreen;
+    font-size: 20px;
+    padding:10px;
+}
+
+.line{
+    width:1400px;
+    border:2px solid grey;
+    margin:27px 0;
+}
+
+/* class directive */
+.active{
+    border:2px solid red;
+    font-size: 25px;
+    color:brown;
+}
