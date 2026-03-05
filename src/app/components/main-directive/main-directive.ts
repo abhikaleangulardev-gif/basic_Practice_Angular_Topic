@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-main-directive',
-  imports: [],
+  imports: [RouterOutlet],
   templateUrl: './main-directive.html',
   styleUrl: './main-directive.css',
 })
