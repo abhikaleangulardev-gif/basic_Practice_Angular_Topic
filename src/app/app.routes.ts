@@ -2,6 +2,8 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
     {path:'',redirectTo:'main-binding',pathMatch:'full'},
+
+    // Data-Binding
     {
         path: 'main-binding',
         loadComponent: () => import('./components/main-data-binding/main-data-binding').then((c) => c.MainDataBinding),
@@ -12,4 +14,9 @@ export const routes: Routes = [
             { path: 'ngModel-NgModelChange', loadComponent: () => import('./components/main-data-binding/basic-ng-model-ng-model-change/basic-ng-model-ng-model-change').then((c) => c.BasicNgModelNgModelChange) }
         ]
     }
+
+    // Directive
+
+
+    // Pipe
 ];
