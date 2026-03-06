@@ -1,0 +1,9 @@
+.line{
+    width:1400px;
+    border:2px solid gray;
+    margin:27px 0;
+}
+
+select{
+    width: 200px;
+}

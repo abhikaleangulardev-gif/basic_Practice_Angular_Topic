@@ -1,1 +1,205 @@
-<p>basic-structural-directive works!</p>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-primary">*ngFor simple array</h3>
+            </div>
+            <div class="card-body text-center">
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let std of myStudentName()">{{std}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-primary">*ngFor simple array of object</h3>
+            </div>
+            <div class="card-body text-center">
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let passagner of myPassangerList()">{{passagner.name}}-
+                        {{passagner.seat}} - {{passagner.checkedIn}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between">
+                <h5 class="text-primary">Student Result</h5>
+                <button type="button" class="btn btn-outline-secondary btn-sm" (click)="onDisplayResult()">Display
+                    Result</button>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered" *ngIf="isDisplayResult(); else templateMessage">
+                    <thead>
+                        <tr>
+                            <th scope="col">Sr No</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Math</th>
+                            <th scope="col">Science</th>
+                            <th scope="col">English</th>
+                            <th scope="col">TotalScore</th>
+                            <th scope="col">Passed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let stdresult of studentResults();let i = index">
+                            <th scope="row">{{i + 1}}</th>
+                            <td>{{stdresult.name}}</td>
+                            <td>{{stdresult.math}}</td>
+                            <td>{{stdresult.science}}</td>
+                            <td>{{stdresult.english}}</td>
+                            <td>{{stdresult.totalScore}}</td>
+                            <td>{{stdresult.hasPassed}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ng-template #templateMessage>
+                    <p class="text-danger">Display To The Few Minutes</p>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between">
+                <h5 class="text-primary">@ for Loop Patients List</h5>
+                <button type="button" class="btn btn-outline-secondary btn-sm" (click)="onDisplayPatients()">Display
+                    Result</button>
+            </div>
+            <div class="card-body">
+                @if (isPatientsActive()) {
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Sr No</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Disease</th>
+                            <th>Doctor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (patient of patients(); track $index) {
+                        <tr>
+                            <td>{{$index + 1}}</td>
+                            <td>{{patient.name}}</td>
+                            <td>{{patient.age}}</td>
+                            <td [ngClass]="patient.gender === 'Male'? 'text-success' : 'text-danger'">{{patient.gender}}
+                            </td>
+                            <td>{{patient.disease}}</td>
+                            <td>{{patient.doctor}}</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                } @else {
+                <p class="text-danger">Display After Few Minutes</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between">
+                <h3 class="text-primary">@ if Status change</h3>
+                <select class="form-select form-select-sm bg-dark text-white" aria-label="Default select example"
+                    (change)="onChangeStatus($event)">
+                    <option selected>Select Status....</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Success">Success</option>
+                    <option value="Reject">Reject</option>
+                </select>
+            </div>
+            <div class="card-body">
+                @if (myStatus() === 'Pending') {
+                <p class="text-warning">Data Loading....</p>
+                }@else if(myStatus() === 'Success'){
+                <p class="text-success">Data Loaded Successfully</p>
+                }@else if(myStatus() === 'Reject'){
+                <p class="text-danger">Error Loading Data</p>
+                }@else {
+                <p class="text-primary">Does Not Select Status...</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <!-- @let -->
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-primary">@ let new Topic</h3>
+            </div>
+            <div class="card-body">
+                <h6 class="text-success">Example - 1</h6>
+                @let userName = myName();
+
+                <p>Hello <b class="text-primary">{{userName}}</b></p>
+
+                <hr>
+                <h6 class="text-success">Example - 2 Object</h6>
+                @let person = myPerson();
+
+                <p>Name : <b class="text-primary">{{person.name}}</b></p>
+                <p>Age : <b class="text-primary">{{person.age}}</b></p>
+                <p>Gender : <b class="text-primary">{{person.gender}}</b></p>
+
+                <hr>
+                <h6 class="text-success">Example - 3 Function</h6>
+                @let total = getTotal();
+
+                <p>Total : <b class="text-primary">{{total}}</b></p>
+
+                <hr>
+                <h6 class="text-success">Example - 4 @ if Loop</h6>
+                @let age = 20;
+
+                @if(age >= 18){
+                    <p>Age : <b class="text-primary">{{age}}</b></p>
+                }
+            </div>
+        </div>
+    </div>
+    <!--@Switch  -->
+       <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between">
+                <h3 class="text-primary">@ Switch new Topic</h3>
+                  <select class="form-select form-select-sm bg-secondary text-warning" aria-label="Default select example"
+                    (change)="onChangestatus($event)">
+                    <option selected>Select Status....</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Success">Success</option>
+                    <option value="Error">Error</option>
+                    <option value="Proccess">Proccess</option>
+                </select>
+            </div>
+            <div class="card-body">
+                @switch (status()) {
+
+                    @case ('Success') {
+                         <p class="text-success">Operation Successful</p>
+                    }
+
+                    @case("Pending"){
+                           <p class="text-warning">Loading...</p>
+                    }
+
+                    @case('Error'){
+                         <p class="text-danger">Something went wrong</p>
+                    }
+
+                    @default {
+                         <p>No Status Found</p>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
