@@ -33,7 +33,8 @@ export const routes: Routes = [
         loadComponent: () => import('./components/main-pipe/main-pipe').then((c) => c.MainPipe),
         children: [
             { path: '', redirectTo: '', pathMatch: 'full' },
-            { path: 'default-pipe', loadComponent: () => import('./components/main-pipe/default-pipe/default-pipe').then((c) => c.DefaultPipe) }
+            { path: 'default-pipe', loadComponent: () => import('./components/main-pipe/default-pipe/default-pipe').then((c) => c.DefaultPipe) },
+            { path: 'basic-advance-pipe', loadComponent: () => import('./components/main-pipe/basic-advance-pipe/basic-advance-pipe').then((c) => c.BasicAdvancePipe) }
         ]
     }
 ];
