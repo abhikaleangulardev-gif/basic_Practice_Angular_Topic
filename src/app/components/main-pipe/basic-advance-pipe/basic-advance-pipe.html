@@ -1,0 +1,39 @@
+<p>basic-advance-pipe works!</p>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="text-primary">Json</h4>
+            </div>
+            <div class="card-body">
+                <p>User : <b class="text-primary">{{myUser() | json}}</b></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="text-primary">Slice</h4>
+            </div>
+            <div class="card-body">
+                <p>Original MyRollNo : <b class="text-primary">{{myRollNo()}}</b></p>
+                <p>slice pipe MyRollNo : <b class="text-primary">{{myRollNo() | slice:1:4}}</b></p>
+                <hr>
+                <p>Original myText : <b class="text-primary">{{myText()}}</b></p>
+                <p>slice pipe MyRollNo : <b class="text-primary">{{(myText() | slice:0:29) + '....'}}</b></p>
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="col-sm-6">
+                <div class="card">
+            <div class="card-header">
+                <h4 class="text-primary">Aync Pipe</h4>
+            </div>
+            <div class="card-body">
+                <!-- <p>MyInterval : <b class="text-primary">{{myCounter$()}}</b></p> -->
+                    <p>MyInterval : <b class="text-primary">{{myCounter$ | async}}</b></p>
+            </div>
+        </div>
+    </div>
+</div>
