@@ -25,7 +25,15 @@ export const routes: Routes = [
             { path: 'attribute-directives', loadComponent: () => import('./components/main-directive/basic-attribute-directive/basic-attribute-directive').then((c) => c.BasicAttributeDirective) },
             { path: 'cutom-directives', loadComponent: () => import('./components/main-directive/basic-custom-directive/basic-custom-directive').then((c) => c.BasicCustomDirective) },
         ]
-    }
+    },
 
     // Pipe
+    {
+        path: 'main-pipe',
+        loadComponent: () => import('./components/main-pipe/main-pipe').then((c) => c.MainPipe),
+        children: [
+            { path: '', redirectTo: '', pathMatch: 'full' },
+            { path: 'default-pipe', loadComponent: () => import('./components/main-pipe/default-pipe/default-pipe').then((c) => c.DefaultPipe) }
+        ]
+    }
 ];

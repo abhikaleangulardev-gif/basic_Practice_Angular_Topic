@@ -1,0 +1,78 @@
+<p>default-pipe works!</p>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="text-primary">Text :- <b class="text-success">[UpperCase,LowerCase,TitleCase]</b></h6>
+            </div>
+            <div class="card-body">
+                <p>FirstName : <b class="text-primary">{{myFirstName() | uppercase}}</b></p>
+                <p>MiddleName : <b class="text-primary">{{myMiddleName() | titlecase}}</b></p>
+                <p>LastName : <b class="text-primary">{{myLastName() | lowercase}}</b></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="text-primary">Numbers :- <b class="text-success">[number, percent, currency]</b></h6>
+            </div>
+            <div class="card-body">
+                <p>original Value : <b class="text-danger">{{myPrice()}}</b></p>
+                <p>Formatted Value[Number] : <b class="text-primary">{{myPrice() | number:'1.2-3'}}</b></p>
+                <hr>
+                <p>original Value : <b class="text-danger">{{myPercentage()}}</b></p>
+                <p>Formatted Value[Percentage] : <b class="text-primary">{{myPercentage() | percent}}</b></p>
+                <p>Formatted Value[Custom Percentage] : <b class="text-primary">{{myPercentage() | percent:'1.1-2'}}</b>
+                </p>
+                <hr>
+                <p>original Value : <b class="text-danger">{{mySalary()}}</b></p>
+                <p>Formatted Value[Currency Doller Sign($)] : <b class="text-primary">{{mySalary() | currency}}</b></p>
+                <p>Formatted Value[Currency Indian Sign(INR)] : <b class="text-primary">{{mySalary() |
+                        currency:"INR"}}</b></p>
+                <p>Formatted Value[Currency USD Sign($) with symbol] : <b class="text-primary">{{mySalary() |
+                        currency:"USD":"symbol":"1.2-2"}}</b></p>
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="text-primary">Date</h6>
+            </div>
+            <div class="card-body">
+                <p>Original Current Date :- <b class="text-primary">{{myDate()}}</b></p>
+                <p>Current Date Formatted [Date] :- <b class="text-primary">{{myDate() | date}}</b></p>
+                <p>Current Date Formatted [dd-MM-yyyy] :- <b class="text-primary">{{myDate() | date:'dd-MM-yyyy'}}</b>
+                </p>
+                <p>Current Date Formatted [dd/MM/yyyy] :- <b class="text-primary">{{myDate() | date:'dd/MM/yyyy'}}</b>
+                </p>
+                <p>Current Date Formatted [MMM d, y] :- <b class="text-primary">{{myDate() | date:'MMM d, y'}}</b>
+                </p>
+                <p>Current Date Formatted [fullDate] :- <b class="text-primary">{{myDate() | date:'fullDate'}}</b>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="text-primary">Time</h6>
+            </div>
+            <div class="card-body">
+                <p>Original Current Date :- <b class="text-primary">{{myDate()}}</b></p>
+                <p>Current Time Formatted [hh:mm:ss a] :- <b class="text-primary">{{myDate() | date:'hh:mm:ss a'}}</b>
+                </p>
+                <p>Current Time Formatted [shortTime] :- <b class="text-primary">{{myDate() | date:'shortTime'}}</b>
+                </p>
+                 <p>Current Time Formatted [mediumTime] :- <b class="text-primary">{{myDate() | date:'mediumTime'}}</b>
+                </p>
+                <p>Current Time Formatted [hh:mm a] :- <b class="text-primary">{{myDate() | date:'hh:mm a'}}</b>
+                </p>
+                <p>Current Time Formatted [HH:mm:ss] :- <b class="text-primary">{{myDate() | date:'HH:mm:ss'}}</b>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
